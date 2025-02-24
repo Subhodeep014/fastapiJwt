@@ -6,4 +6,7 @@ client/node_modules
 logs/
 *.logs
 *.cache
+__pycache__/
 api/__pycache__/
+todo/__pycache__/
+core/__pycache__/

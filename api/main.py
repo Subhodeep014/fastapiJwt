@@ -4,6 +4,7 @@ from core.database import engine
 from models import Base
 from contextlib import asynccontextmanager
 from auth.routes import auth_router
+from todo.routes import todo_router
 
 @asynccontextmanager
 async def lifespan(app: FastAPI): 
@@ -20,3 +21,4 @@ def Home():
     return {"message":"Welcome to the auth api"}
 
 app.include_router(auth_router, prefix="/auth")
+app.include_router(todo_router)

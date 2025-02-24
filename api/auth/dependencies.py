@@ -1,7 +1,13 @@
 from fastapi import Depends, HTTPException, Request
+from dotenv import load_dotenv
 from jose import JWTError, jwt
-from core.config import SECRET_KEY, ALGORITHM
-
+import os
+# import core.config as config
+load_dotenv()
+SECRET_KEY = os.getenv("SECRET_KEY")
+ALGORITHM = os.getenv("ALGORITHM")
+print(ALGORITHM) 
+# print(config.SECRET_KEY)
 async def get_current_user(request:Request):
     token = request.cookies.get("access_token")
 
