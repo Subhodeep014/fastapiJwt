@@ -10,7 +10,7 @@ todo_router = APIRouter(prefix="/todos", tags=["Todos"])
 @todo_router.post("/",response_model=schemas.TodoResponse)
 async def create_todo(todo:schemas.TodoCreate, db:AsyncSession = Depends(get_db), email:str=Depends(get_current_user)):
     new_todo = models.Todo(
-        title=todo.title,
+        user_todo=todo.user_todo,
         completed=todo.completed,
         owner_email=email  # Use the user's email here
     )

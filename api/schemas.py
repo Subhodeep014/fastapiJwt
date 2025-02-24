@@ -12,7 +12,7 @@ class UserResponse(BaseModel):
     class config:
         from_attributes = True
 class TodoBase(BaseModel):
-    title:str
+    user_todo:str
     completed : bool=False
 class TodoCreate(TodoBase):
     pass
@@ -21,7 +21,7 @@ class TodoUpdate(TodoBase):
 class TodoResponse(BaseModel):
     id :int
     owner_email:EmailStr
-    title: str
+    user_todo: str
     completed : bool
     class Config:
         from_attributes = True

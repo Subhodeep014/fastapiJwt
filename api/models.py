@@ -12,7 +12,7 @@ class User(Base):
 class Todo(Base):
     __tablename__ = "todos"
     id = Column(Integer, primary_key=True, index=True)
-    title = Column(String, index=True, nullable=False)
+    user_todo = Column(String, index=True, nullable=False)
     completed = Column(Boolean, default=False)
     owner_email = Column(String, ForeignKey("users.email"))
     owner = relationship("User", back_populates="todos")
